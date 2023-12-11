@@ -1,0 +1,32 @@
+KOTLIN is a compiled programming language.
+
+
+The compilation of Kotlin can be summed as in the following steps:
+
+    1.  HIGH LEVEL CODE ---> We write high level staticly typed code in a .kt file.
+    2.  COMPILATION -------> The source code in compied into byte code . The kotlinc is 
+                             responsible for this step. The resulting compiledcode is 
+                             a .class file.
+
+            .kt file <-------> kotlinc <-------> ByteCode (.class file)
+            
+    3. JVM -----------------> The Java Virtual Machine(JVM) converts the .class file of
+                              byte codes into executable file. So Koltin leverages the 
+                              existing machinary in java to be converted into executable code.
+
+
+            .class file <--------> JVM <------------> Excecutable file
+
+        
+        Kotlin can additionally use the just in time compiler to dynamically optimize the byte
+        code interpretation to executable code.
+
+            ByteCode (.class) <----------->  JVM <-----------> JIT <---------> Excecutable code.
+
+    
+        Additionally to running Kotlin on JVM. It can also use the native executables without relying 
+        on the JVM. This appraoch is known as the ahead of time compiler(AOT). It is used for senarios 
+        where where JVM is not desired.
+
+            Source Code (.kt) <-----------> Koltin/native Compiler <--------> AOT <---------> Native Excecutable code
+
