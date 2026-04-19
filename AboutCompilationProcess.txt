@@ -3,30 +3,70 @@ KOTLIN is a compiled programming language.
 
 The compilation of Kotlin can be summed as in the following steps:
 
-    1.  HIGH LEVEL CODE ---> We write high level staticly typed code in a .kt file.
-    2.  COMPILATION -------> The source code in compied into byte code . The kotlinc is 
-                             responsible for this step. The resulting compiledcode is 
+    1.  HIGH LEVEL CODE ---> We write high level statically typed code in a .kt file.
+    2.  COMPILATION -------> The source code is compiled into bytecode. The kotlinc compiler is 
+                             responsible for this step. The resulting compiled code is 
                              a .class file.
 
             .kt file <-------> kotlinc <-------> ByteCode (.class file)
             
-    3. JVM -----------------> The Java Virtual Machine(JVM) converts the .class file of
-                              byte codes into executable file. So Koltin leverages the 
-                              existing machinary in java to be converted into executable code.
+    3. JVM -----------------> The Java Virtual Machine (JVM) converts the .class file of
+                              bytecode into an executable file. So Kotlin leverages the 
+                              existing machinery in Java to be converted into executable code.
 
 
-            .class file <--------> JVM <------------> Excecutable file
+            .class file <--------> JVM <------------> Executable file
 
         
         Kotlin can additionally use the just in time compiler to dynamically optimize the byte
         code interpretation to executable code.
 
-            ByteCode (.class) <----------->  JVM <-----------> JIT <---------> Excecutable code.
+            ByteCode (.class) <----------->  JVM <-----------> JIT <---------> Executable code.
 
     
-        Additionally to running Kotlin on JVM. It can also use the native executables without relying 
-        on the JVM. This appraoch is known as the ahead of time compiler(AOT). It is used for senarios 
-        where where JVM is not desired.
+        Additionally to running Kotlin on JVM, it can also use native executables without relying 
+        on the JVM. This approach is known as the ahead-of-time compiler (AOT). It is used for scenarios 
+        where the JVM is not desired.
 
-            Source Code (.kt) <-----------> Koltin/native Compiler <--------> AOT <---------> Native Excecutable code
+            Source Code (.kt) <-----------> Kotlin/Native Compiler <--------> AOT <---------> Native Executable code
 
+
+DEVELOPER NOTES:
+
+    • BUILD TOOLS: In practice, developers use build tools like Gradle or Maven to manage compilation.
+      These tools invoke kotlinc automatically and handle dependency management, not manual compilation.
+      
+    • INCREMENTAL COMPILATION: Modern Kotlin compilers support incremental compilation - only changed
+      files are recompiled, speeding up the build process significantly.
+      
+    • COMPILATION MODES: Kotlin compilation produces different outputs:
+      - Debug builds include debugging information and are slower but easier to debug.
+      - Release builds are optimized and stripped of debug info for smaller, faster executables.
+      
+    • STANDARD LIBRARY: All Kotlin programs depend on the Kotlin Standard Library (stdlib), which
+      is included in the compiled .class files or linked in native builds.
+      
+    • JAVA INTEROPERABILITY: Kotlin compiles to Java bytecode and is 100% interoperable with Java.
+      Kotlin code can call Java libraries and vice versa. The compiler handles the conversion seamlessly.
+      
+    • NULL SAFETY COMPILATION: Kotlin's null-safety features are enforced DURING compilation, not runtime.
+      The compiler prevents NullPointerExceptions by catching null-safety violations before bytecode generation.
+      This differs from Java where nullability is unchecked at compile time.
+      
+    • INLINE FUNCTIONS & REIFICATION: The @inline keyword tells the compiler to replace function calls
+      with the actual function body (inline substitution). This eliminates function call overhead. Reified
+      type parameters allow accessing generic type information at runtime, which is normally erased in Java.
+      
+    • EXTENSION FUNCTIONS: Extension functions are compiled as static methods with the receiver type as
+      the first parameter. This allows adding methods to existing classes without inheritance.
+      
+    • COROUTINES COMPILATION: Coroutines are compiled using state machines. The compiler transforms suspend
+      functions into continuation-passing style, enabling non-blocking asynchronous code on a single thread.
+      
+    • MULTIPLATFORM COMPILATION: Kotlin/Multiplatform (KMP) allows compiling the same code to different
+      targets (JVM, Native, JavaScript). The compiler generates platform-specific bytecode for each target.
+      
+    • OPTIMIZATION LEVELS: By default, the Kotlin compiler performs optimizations. Using '-no-stdlib'
+      excludes stdlib from compilation if needed. Release builds further optimize with dead code elimination
+      and method inlining.
+            
