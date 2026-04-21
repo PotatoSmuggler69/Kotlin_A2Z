@@ -15,6 +15,7 @@ In Kotlin, there are two types of variables: `var` and `val`.
 
     val is like a final variable in Java, while var is like a regular variable that can be changed.
 
+
 */
 
 fun main() {
@@ -27,8 +28,8 @@ fun main() {
 
 
     // How to assign a new value to a var variable
-    var first_name = "Alice" // Dynamically typed variable
-    var surname : String= "Smith" // Statically typed variable
+    var first_name = "Navneet" // Dynamically typed variable
+    var surname : String= "Yadav" // Statically typed variable
     println(first_name + " " + surname) // Output: Alice Smith
 }
 
