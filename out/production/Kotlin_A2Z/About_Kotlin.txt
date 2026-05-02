@@ -1,0 +1,15 @@
+Some of the key points of Kotlin are as follows:
+
+    1. It is a staticly typed language
+    2. It is funcational programing language.
+    3. It is an object oriented programming language.
+    4. It is consize, safe and powerful.
+    5. It is an open source programming language.
+
+
+Things to feel damn about:
+
+    1. Null checks ---> So many times does the Kotlin compiler forces you to check if the objects are not null.
+                This is to avoid null pointer exceptions.
+
+    2. 
